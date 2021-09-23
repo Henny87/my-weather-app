@@ -1,0 +1,114 @@
+body {
+  margin-top: 50px;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+}
+form {
+  display: inline-flex;
+}
+
+.form-control.form-control-lg {
+  border-color: #006ec5;
+  color: #006ec5;
+  border-width: 2px;
+  width: 50vw;
+}
+
+.btn.btn-secondary.btn-lg {
+  background: #006ec5;
+  border-color: #006ec5;
+}
+
+.searchButton {
+  width: 10vw;
+}
+
+.locationButton {
+  width: 5vw;
+}
+
+.card.total {
+  border-color: #006ec5;
+  border-width: 2px;
+  width: auto;
+}
+
+.card {
+  transition: ease-in-out 400ms;
+}
+.card:hover {
+  border-color: #006ec5;
+}
+
+.city {
+  color: #ff7043;
+  font-family: "Roboto", sans-serif;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.temperature-today {
+  color: #006ec5;
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.celsius {
+  color: #006ec5;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  transition: ease-in-out 400ms;
+}
+
+.date-today {
+  font-family: "Roboto", sans-serif;
+  color: #ffa726;
+  font-weight: 400;
+}
+
+.weather-today {
+  font-family: "Roboto", sans-serif;
+  color: #006ec5;
+  font-weight: 400;
+}
+
+.fas.fa-cloud-rain {
+  color: #7a7977;
+  font-size: 50px;
+}
+
+.fas.fa-sun {
+  color: #ffa726;
+  font-size: 30px;
+}
+
+.temperature {
+  color: #006ec5;
+  font-family: "Roboto", sans-serif;
+  font-size: larger;
+  font-weight: 700;
+}
+
+.weather {
+  font-family: "Roboto", sans-serif;
+  font-size: smaller;
+  color: #006ec5;
+  font-weight: 400;
+}
+
+.day {
+  font-family: "Roboto", sans-serif;
+  font-size: smaller;
+  color: #ff7043;
+  font-weight: 400;
+}
+
+.date {
+  font-family: "Roboto", sans-serif;
+  font-size: smaller;
+  color: #ffa726;
+  font-weight: 400;
+}
