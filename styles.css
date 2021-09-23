@@ -112,3 +112,8 @@ form {
   color: #ffa726;
   font-weight: 400;
 }
+
+.sourceLink {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
