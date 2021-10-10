@@ -129,6 +129,16 @@ function getWindSpeed(response) {
   actualWindSpeed.innerHTML = ` ${windSpeed} km/h`;
 }
 
+function getWeatherIcon(response) {
+  let weatherIcon = response.data.weather[0].icon;
+  let actualWeatherIcon = document.querySelector("#weatherIcon");
+  actualWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+  );
+  actualWeatherIcon.setAttribute("alt", response.data.weather[0].description);
+}
+
 function changeCity(event) {
   event.preventDefault();
   let currentCity = document.querySelector(".city");
@@ -141,6 +151,7 @@ function changeCity(event) {
   axios.get(apiURL).then(getWeather);
   axios.get(apiURL).then(getHumidity);
   axios.get(apiURL).then(getWindSpeed);
+  axios.get(apiURL).then(getWeatherIcon);
   newCity.value = null;
 }
 
@@ -154,6 +165,7 @@ function currentPosition(position) {
   axios.get(apiURL).then(getWeather);
   axios.get(apiURL).then(getHumidity);
   axios.get(apiURL).then(getWindSpeed);
+  axios.get(apiURL).then(getWeatherIcon);
 }
 
 function findLocation(position) {
