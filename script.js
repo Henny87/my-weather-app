@@ -182,3 +182,6 @@ citySearch.addEventListener("click", changeCity);
 
 let currentLocationSearch = document.querySelector("#locationButton");
 currentLocationSearch.addEventListener("click", findLocation);
+
+findLocation();
+currentPosition();
