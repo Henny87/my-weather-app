@@ -34,6 +34,7 @@
                 type="text"
                 placeholder="Enter City"
                 id="citySearch"
+                autocomplete="off"
               />           
               <button type="button" class="btn btn-secondary btn-lg" id="searchButton" >
                 Search
@@ -50,22 +51,24 @@
           <br />
           <div class="row">
             <div class="col-1"></div>
-            <div class="col-4 city">Paradise</div>
+            <div class="col-3">
+            <ul>
+              <li class="city">Paradise</li>
+              <li class="date-today"></li>
+            </ul>
+            </div>
             <div class="col-1"><i class="fas fa-sun"></i></div>
-            <div class="col-2 temperature-today"><span class="temperature-actual">25</span><span class="celsius"> °C | °F </span></div>
-             <div class="col-4">
+            <div class="col-2">
+              <ul>
+                <li class="temperature-today"><span class="temperature-actual">25</span><span class="celsius"> °C | °F </span></li>
+                <li class="weather-today">Sunny</li>
+              </ul></div>
+             <div class="col-5">
                <ul>
-                 <li>Humidity:<span id="humidity"></span></li>
-                 <li>Wind speed:<span id="windSpeed"></span></li>
+                 <li>Humidity:<span class="humidity"></span></li>
+                 <li>Wind speed:<span class="windSpeed"></span></li>
                </ul>
-              </div>
-          </div>
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-5 date-today"></div>
-            <div class="col-2 weather-today">Sunny</div>
-            <div class="col-4"></div>
-          </div>
+              </div>        
           <br />
           <div class="row">
             <div class="col-1"></div>
