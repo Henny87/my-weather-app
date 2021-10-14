@@ -49,6 +49,7 @@ li {
 
 .card {
   transition: ease-in-out 400ms;
+  word-wrap: normal;
 }
 .card:hover {
   border-color: #006ec5;
@@ -72,8 +73,8 @@ li {
   font-weight: 700;
 }
 
-#weatherIcon {
-  margin-right: 15px;
+.weatherIcon {
+  margin-right: 20px;
   height: 75px;
   width: 75px;
 }
@@ -108,14 +109,8 @@ li {
   font-weight: 400;
 }
 
-.fas.fa-cloud-rain {
-  color: #7a7977;
-  font-size: 50px;
-}
-
-.fas.fa-sun {
-  color: #ffa726;
-  font-size: 30px;
+.row.weather-forecast {
+  display: block;
 }
 
 .temperature {
@@ -123,6 +118,7 @@ li {
   font-family: "Roboto", sans-serif;
   font-size: larger;
   font-weight: 700;
+  margin: 0 25px 0 25px;
 }
 
 .weather {
@@ -130,6 +126,7 @@ li {
   font-size: smaller;
   color: #006ec5;
   font-weight: 400;
+  margin: 0 25px 0 25px;
 }
 
 .day {
@@ -137,6 +134,7 @@ li {
   font-size: smaller;
   color: #ff7043;
   font-weight: 400;
+  margin: 0 25px 0 25px;
 }
 
 .date {
@@ -144,6 +142,7 @@ li {
   font-size: smaller;
   color: #ffa726;
   font-weight: 400;
+  margin: 0 25px 0 25px;
 }
 
 .sourceLink {
