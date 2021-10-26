@@ -154,6 +154,7 @@ function changeCity(event) {
   axios.get(apiURL).then(getHumidity);
   axios.get(apiURL).then(getWindSpeed);
   axios.get(apiURL).then(getWeatherIcon);
+  axios.get(apiURL).then(getForecast);
   newCity.value = null;
 }
 
@@ -168,6 +169,7 @@ function currentPosition(position) {
   axios.get(apiURL).then(getHumidity);
   axios.get(apiURL).then(getWindSpeed);
   axios.get(apiURL).then(getWeatherIcon);
+  axios.get(apiURL).then(getForecast);
 }
 
 function findLocation(position) {
@@ -191,24 +193,96 @@ function calculateCelsius(event) {
   cTemperature.innerHTML = Math.round(celsiusTemperature);
 }
 
+function formatDay(time) {
+  let date = new Date(time * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function formatFutureDate(time) {
+  let date = new Date(time * 1000);
+  let days = [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+  ];
+
+  let months = [
+    "00",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+    "11",
+    "12",
+  ];
+
+  let futureDay = days[date.getDate()];
+  let futureMonth = months[date.getMonth() + 1];
+
+  return `${futureDay}/${futureMonth}`;
+}
+
 function displayForecast(response) {
-  let forecast = document.querySelector("#forecast");
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `   <div class="col-2">
-                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="sunny" id="weatherIcon"/>
-                <div class="temperature">25°C</div>
-                <div class="weather">Sunny</div>
-                <div class="day">${day}</div>
-                <div class="date">08/03</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `   <div class="col-2">
+                <img src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" alt="" id="weatherIcon"/>
+                <div class="temperature">${Math.round(
+                  forecastDay.temp.day
+                )}°</div>
+                <div class="weather">${forecastDay.weather[0].main}</div>
+                <div class="day">${formatDay(forecastDay.dt)}</div>
+                <div class="date">${formatFutureDate(forecastDay.dt)}</div>
               </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
