@@ -128,7 +128,7 @@ function getHumidity(response) {
 function getWindSpeed(response) {
   let windSpeed = Math.round(response.data.wind.speed);
   let actualWindSpeed = document.querySelector(".windSpeed");
-  actualWindSpeed.innerHTML = ` ${windSpeed} km/h`;
+  actualWindSpeed.innerHTML = ` ${windSpeed} m/s`;
 }
 
 function getWeatherIcon(response) {
@@ -174,23 +174,6 @@ function currentPosition(position) {
 
 function findLocation(position) {
   navigator.geolocation.getCurrentPosition(currentPosition);
-}
-
-function calculateFahrenheit(event) {
-  event.preventDefault();
-  celsius.classList.remove("active");
-  fahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  let fTemperature = document.querySelector(".temperature-actual");
-  fTemperature.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function calculateCelsius(event) {
-  event.preventDefault();
-  celsius.classList.add("active");
-  fahrenheit.classList.remove("active");
-  let cTemperature = document.querySelector(".temperature-actual");
-  cTemperature.innerHTML = Math.round(celsiusTemperature);
 }
 
 function formatDay(time) {
@@ -274,7 +257,7 @@ function displayForecast(response) {
                 }@2x.png" alt="" id="weatherIcon"/>
                 <div class="temperature">${Math.round(
                   forecastDay.temp.day
-                )}°</div>
+                )}°C</div>
                 <div class="weather">${forecastDay.weather[0].main}</div>
                 <div class="day">${formatDay(forecastDay.dt)}</div>
                 <div class="date">${formatFutureDate(forecastDay.dt)}</div>
@@ -292,8 +275,6 @@ function getForecast(coordinates) {
   axios.get(apiURL).then(displayForecast);
 }
 
-let celsiusTemperature = null;
-
 let currentDate = new Date();
 let actualTime = document.querySelector(".date-today");
 actualTime.innerHTML = formatDate(currentDate);
@@ -304,12 +285,6 @@ citySearch.addEventListener("click", changeCity);
 
 let currentLocationSearch = document.querySelector("#locationButton");
 currentLocationSearch.addEventListener("click", findLocation);
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", calculateFahrenheit);
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", calculateCelsius);
 
 findLocation();
 currentPosition();
