@@ -47,14 +47,6 @@ li {
   width: auto;
 }
 
-.card {
-  transition: ease-in-out 400ms;
-  word-wrap: normal;
-}
-.card:hover {
-  border-color: #006ec5;
-}
-
 .city {
   color: #ff7043;
   font-family: "Roboto", sans-serif;
@@ -85,16 +77,6 @@ li {
   font-size: 20px;
   font-weight: 500;
   text-align: left;
-  transition: ease-in-out 400ms;
-}
-
-.temperature-celsius .active {
-  color: #006ec5;
-  cursor: default;
-}
-
-.temperature-celsius .active:hover {
-  text-decoration: none;
 }
 
 .date-today {

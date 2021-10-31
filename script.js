@@ -133,7 +133,7 @@ function getWindSpeed(response) {
 
 function getWeatherIcon(response) {
   let weatherIcon = response.data.weather[0].icon;
-  let actualWeatherIcon = document.querySelector("#weatherIcon");
+  let actualWeatherIcon = document.querySelector(".weatherIcon");
   actualWeatherIcon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
